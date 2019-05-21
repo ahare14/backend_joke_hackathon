@@ -1,0 +1,1018 @@
+  [1m[35m (344.3ms)[0m  [1m[35mCREATE DATABASE "joke_app_back_end_development" ENCODING = 'unicode'[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (263.2ms)[0m  [1m[35mCREATE DATABASE "joke_app_back_end_test" ENCODING = 'unicode'[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8524720247237218815)[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateJokes (20190521194318)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "jokes" ("id" bigserial primary key, "joke_id" integer, "category" character varying, "type" character varying, "setup" text, "delivery" text, "joke" text, "nsfw" boolean, "political" boolean, "religious" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190521194318_create_jokes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190521194318"]]
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-21 19:45:14.474765"], ["updated_at", "2019-05-21 19:45:14.474765"]]
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8524720247237218815)[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mJoke Create (1.0ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "joke", "nsfw", "political", "religious", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["joke_id", 201], ["category", "Black Adder"], ["joke", "My dog has no nose. How does he smell? Aweful"], ["nsfw", false], ["political", false], ["religious", false], ["created_at", "2019-05-21 19:56:35.624198"], ["updated_at", "2019-05-21 19:56:35.624198"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mJoke Load (0.4ms)[0m  [1m[34mSELECT  "jokes".* FROM "jokes" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 13:58:42 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+LoadError (cannot load such file -- rest-client):
+  
+app/controllers/api/v1/jokes_controller.rb:1:in `<main>'
+Started GET "/favicon.ico" for ::1 at 2019-05-21 13:58:42 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 13:59:00 -0600
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for Api::V1::JokesController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:00:43 -0600
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (0.6ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:9
+No serializer found for resource: #<Joke id: 1, joke_id: 201, category: "Black Adder", type: nil, setup: nil, delivery: nil, joke: "My dog has no nose. How does he smell? Aweful", nsfw: false, political: false, religious: false, created_at: "2019-05-21 19:56:35", updated_at: "2019-05-21 19:56:35">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Joke::ActiveRecord_Relation (0.93ms)
+Completed 200 OK in 27ms (Views: 18.5ms | ActiveRecord: 6.8ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mJoke Load (0.4ms)[0m  [1m[34mSELECT  "jokes".* FROM "jokes" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8524720247237218815)[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateJokes (20190521194318)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (7.0ms)[0m  [1m[35mDROP TABLE "jokes"[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190521194318"]]
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8524720247237218815)[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8524720247237218815)[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8524720247237218815)[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE DATABASE "joke_app_back_end_development" ENCODING = 'unicode'[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "joke_app_back_end_test" ENCODING = 'unicode'[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8524720247237218815)[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateJokes (20190521194318)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "jokes" ("id" bigserial primary key, "joke_id" integer, "category" character varying, "style" character varying, "setup" text, "delivery" text, "joke" text, "nsfw" boolean, "political" boolean, "religious" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190521194318_create_jokes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190521194318"]]
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8524720247237218815)[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mJoke Create (1.2ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 61], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "Thank you student loans for getting me through college."], ["delivery", "I don't think I'll ever be able to repay you"], ["created_at", "2019-05-21 20:17:01.291947"], ["updated_at", "2019-05-21 20:17:01.291947"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mJoke Create (0.5ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 16], ["category", "Programming"], ["style", "twopart"], ["setup", "Why did the programmer quit his job?"], ["delivery", "Because He didn't get arrays."], ["created_at", "2019-05-21 20:17:05.015246"], ["updated_at", "2019-05-21 20:17:05.015246"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 56], ["category", "Programming"], ["style", "single"], ["joke", "1. Open terminal\n2. mkdir snuts\n3. cd snuts"], ["created_at", "2019-05-21 20:17:08.803824"], ["updated_at", "2019-05-21 20:17:08.803824"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mJoke Create (0.9ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 41], ["category", "Programming"], ["style", "single"], ["joke", "Hey Girl,\nRoses are #ff0000,\nViolets are #0000ff,\nI use hex codes,\nBut I'd use RGB for you."], ["created_at", "2019-05-21 20:17:12.170974"], ["updated_at", "2019-05-21 20:17:12.170974"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 103], ["category", "Dark"], ["style", "twopart"], ["setup", "I've been in 15 school shootings and I was lucky to survive!"], ["delivery", "I just had to be nice with the cops and not resist."], ["created_at", "2019-05-21 20:17:15.990645"], ["updated_at", "2019-05-21 20:17:15.990645"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 13], ["category", "Programming"], ["style", "twopart"], ["setup", "Why does no one like SQLrillex?"], ["delivery", "He keeps dropping the database."], ["created_at", "2019-05-21 20:17:19.749245"], ["updated_at", "2019-05-21 20:17:19.749245"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 9], ["category", "Programming"], ["style", "single"], ["joke", "Your mama's so FAT she can't save files bigger than 4GB."], ["created_at", "2019-05-21 20:17:23.573522"], ["updated_at", "2019-05-21 20:17:23.573522"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "political", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["joke_id", 72], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "What happens when you don't obey the KGB?"], ["delivery", "You get Putin jail"], ["political", true], ["created_at", "2019-05-21 20:17:27.337638"], ["updated_at", "2019-05-21 20:17:27.337638"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 74], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "What's brown and sticky"], ["delivery", "A stick!"], ["created_at", "2019-05-21 20:17:31.166302"], ["updated_at", "2019-05-21 20:17:31.166302"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 121], ["category", "Dark"], ["style", "twopart"], ["setup", "White people don't shoot each other in the streets like black people do."], ["delivery", "We do it in schools because we have class."], ["created_at", "2019-05-21 20:17:49.905917"], ["updated_at", "2019-05-21 20:17:49.905917"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 83], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "I asked my wife \"Am I the only one you've been with?\""], ["delivery", "\"Yes... but I've had some sevens and eights.\" She replied."], ["created_at", "2019-05-21 20:17:53.597489"], ["updated_at", "2019-05-21 20:17:53.597489"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.4ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 41], ["category", "Programming"], ["style", "single"], ["joke", "Hey Girl,\nRoses are #ff0000,\nViolets are #0000ff,\nI use hex codes,\nBut I'd use RGB for you."], ["created_at", "2019-05-21 20:17:57.274114"], ["updated_at", "2019-05-21 20:17:57.274114"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.4ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 32], ["category", "Programming"], ["style", "twopart"], ["setup", "What is the best prefix for global variables?"], ["delivery", "//"], ["created_at", "2019-05-21 20:18:01.048980"], ["updated_at", "2019-05-21 20:18:01.048980"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 107], ["category", "Dark"], ["style", "twopart"], ["setup", "What's the difference between an apple and a black guy?"], ["delivery", "The apple will eventually fall from the tree that it's hanging from!"], ["created_at", "2019-05-21 20:18:04.749229"], ["updated_at", "2019-05-21 20:18:04.749229"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 42], ["category", "Programming"], ["style", "single"], ["joke", "Debugging is like being the detective in a crime movie where you're also the murderer at the same time."], ["created_at", "2019-05-21 20:18:08.520725"], ["updated_at", "2019-05-21 20:18:08.520725"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 103], ["category", "Dark"], ["style", "twopart"], ["setup", "I've been in 15 school shootings and I was lucky to survive!"], ["delivery", "I just had to be nice with the cops and not resist."], ["created_at", "2019-05-21 20:18:12.317710"], ["updated_at", "2019-05-21 20:18:12.317710"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 13], ["category", "Programming"], ["style", "twopart"], ["setup", "Why does no one like SQLrillex?"], ["delivery", "He keeps dropping the database."], ["created_at", "2019-05-21 20:18:15.661720"], ["updated_at", "2019-05-21 20:18:15.661720"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 18], ["category", "Programming"], ["style", "single"], ["joke", "\"Honey, go to the store and buy some eggs.\"\n\"OK.\"\n\"Oh and while you're there, get some milk.\"\n\nHe never returned."], ["created_at", "2019-05-21 20:18:19.387144"], ["updated_at", "2019-05-21 20:18:19.387144"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 44], ["category", "Programming"], ["style", "single"], ["joke", "Have a great weekend!\nI hope your code behaves the same on Monday as it did on Friday."], ["created_at", "2019-05-21 20:18:23.171305"], ["updated_at", "2019-05-21 20:18:23.171305"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 48], ["category", "Programming"], ["style", "twopart"], ["setup", "Why did the functional programming developer get thrown out of school?"], ["delivery", "Because he refused to take classes."], ["created_at", "2019-05-21 20:18:26.878577"], ["updated_at", "2019-05-21 20:18:26.878577"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 85], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "So I made a graph of all my past relationships..."], ["delivery", "It has an ex axis and a why axis."], ["created_at", "2019-05-21 20:18:30.558189"], ["updated_at", "2019-05-21 20:18:30.558189"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 69], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "What kind of car did Whitney Houston drive?"], ["delivery", "A Hyundaiiiiiiiiiiiiiiiiiiiiiiii"], ["created_at", "2019-05-21 20:18:33.905060"], ["updated_at", "2019-05-21 20:18:33.905060"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.9ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 54], ["category", "Programming"], ["style", "twopart"], ["setup", "Why do Java programmers hate communism?"], ["delivery", "They don't want to live in a classless society."], ["created_at", "2019-05-21 20:18:37.255205"], ["updated_at", "2019-05-21 20:18:37.255205"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 84], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "What do Japanese cannibals eat?"], ["delivery", "Raw men."], ["created_at", "2019-05-21 20:18:40.952507"], ["updated_at", "2019-05-21 20:18:40.952507"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 23], ["category", "Programming"], ["style", "single"], ["joke", "The glass is neither half-full nor half-empty, the glass is twice as big as it needs to be."], ["created_at", "2019-05-21 20:18:44.667761"], ["updated_at", "2019-05-21 20:18:44.667761"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 52], ["category", "Programming"], ["style", "single"], ["joke", "Algorithm:\nA word used by programmers when they don't want to explain how their code works."], ["created_at", "2019-05-21 20:18:48.362703"], ["updated_at", "2019-05-21 20:18:48.362703"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 22], ["category", "Programming"], ["style", "single"], ["joke", "If Bill Gates had a dime for every time Windows crashed ... Oh, he does."], ["created_at", "2019-05-21 20:18:52.054157"], ["updated_at", "2019-05-21 20:18:52.054157"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 16], ["category", "Programming"], ["style", "twopart"], ["setup", "Why did the programmer quit his job?"], ["delivery", "Because He didn't get arrays."], ["created_at", "2019-05-21 20:18:55.746529"], ["updated_at", "2019-05-21 20:18:55.746529"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 47], ["category", "Programming"], ["style", "twopart"], ["setup", "Genders are a lot like booleans."], ["delivery", "There's only two of them."], ["created_at", "2019-05-21 20:18:59.480793"], ["updated_at", "2019-05-21 20:18:59.480793"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.5ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 28], ["category", "Programming"], ["style", "single"], ["joke", "Two C strings walk into a bar.\nThe bartender asks \"What can I get ya?\"\nThe first string says \"I'll have a gin and tonic.\"\nThe second string thinks for a minute, then says \"I'll take a tequila sunriseJF()\#$JF(#)$(@J#()$@#())!*FNIN!OBN134ufh1ui34hf9813f8h8384h981h3984h5F!#\#@\"\nThe first string apoligizes, \"You'll have to excuse my friend, he's not null terminated.\""], ["created_at", "2019-05-21 20:19:03.204813"], ["updated_at", "2019-05-21 20:19:03.204813"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 40], ["category", "Programming"], ["style", "single"], ["joke", "Debugging: Removing the needles from the haystack."], ["created_at", "2019-05-21 20:19:07.705616"], ["updated_at", "2019-05-21 20:19:07.705616"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 19], ["category", "Programming"], ["style", "twopart"], ["setup", "How do you know God is a shitty programmer?"], ["delivery", "He wrote the OS for an entire universe, but didn't leave a single useful comment."], ["created_at", "2019-05-21 20:19:11.387465"], ["updated_at", "2019-05-21 20:19:11.387465"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 87], ["category", "Miscellaneous"], ["style", "single"], ["joke", "I have these weird muscle spasms in my gluteus maximus.\nI figured out from my doctor that everything was alright:\nHe said \"Weird flex, butt okay.\""], ["created_at", "2019-05-21 20:19:18.876651"], ["updated_at", "2019-05-21 20:19:18.876651"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 89], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "If I make you breakfast in bed, a simple thank you is all I need."], ["delivery", "Not all this \"How the fuck did you get in my house?!\" nonsense."], ["created_at", "2019-05-21 20:19:22.576772"], ["updated_at", "2019-05-21 20:19:22.576772"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 61], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "Thank you student loans for getting me through college."], ["delivery", "I don't think I'll ever be able to repay you"], ["created_at", "2019-05-21 20:19:26.283521"], ["updated_at", "2019-05-21 20:19:26.283521"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 33], ["category", "Programming"], ["style", "single"], ["joke", "TIL that changing random stuff until your program works is \"hacky\" and a \"bad coding practice\" but if you do it fast enough it's \"Machine Learning\" and pays 4x your current salary."], ["created_at", "2019-05-21 20:19:33.729544"], ["updated_at", "2019-05-21 20:19:33.729544"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 57], ["category", "Programming"], ["style", "single"], ["joke", "Your momma is so fat, we had to switch to NTFS to store her."], ["created_at", "2019-05-21 20:19:37.441709"], ["updated_at", "2019-05-21 20:19:37.441709"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 34], ["category", "Programming"], ["style", "single"], ["joke", "Eight bytes walk into a bar.\nThe bartender asks, \"Can I get you anything?\"\n\"Yeah,\" reply the bytes.\n\"Make us a double.\""], ["created_at", "2019-05-21 20:19:41.193921"], ["updated_at", "2019-05-21 20:19:41.193921"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 74], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "What's brown and sticky"], ["delivery", "A stick!"], ["created_at", "2019-05-21 20:19:44.574829"], ["updated_at", "2019-05-21 20:19:44.574829"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 86], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "My wife left me because I'm too insecure and paranoid."], ["delivery", "Oh wait, never mind. She was just getting the mail."], ["created_at", "2019-05-21 20:19:48.299783"], ["updated_at", "2019-05-21 20:19:48.299783"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 90], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "My wife divorced me so i stole her wheelchair."], ["delivery", "Guess who came crawling back."], ["created_at", "2019-05-21 20:19:59.120040"], ["updated_at", "2019-05-21 20:19:59.120040"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.5ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 25], ["category", "Programming"], ["style", "single"], ["joke", "ASCII silly question, get a silly ANSI."], ["created_at", "2019-05-21 20:20:06.481016"], ["updated_at", "2019-05-21 20:20:06.481016"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 6], ["category", "Programming"], ["style", "single"], ["joke", "A web developer walks into a restaurant.\nHe immediately leaves in disgust as the restaurant was laid out in tables."], ["created_at", "2019-05-21 20:20:13.976591"], ["updated_at", "2019-05-21 20:20:13.976591"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 67], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "Did you hear about the cheese factory that exploded in france?"], ["delivery", "There was nothing but de brie."], ["created_at", "2019-05-21 20:20:17.855878"], ["updated_at", "2019-05-21 20:20:17.855878"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 53], ["category", "Programming"], ["style", "twopart"], ["setup", "So what's a set of predefined steps the government might take to preserve the environment?"], ["delivery", "An Al-Gore-ithm."], ["created_at", "2019-05-21 20:20:25.269795"], ["updated_at", "2019-05-21 20:20:25.269795"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (1.2ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 108], ["category", "Dark"], ["style", "single"], ["joke", "Me and my jewish friend were eating lunch and i farted. He got mad so i said \"cmon man a little gas never killed anyone\""], ["created_at", "2019-05-21 20:20:28.619333"], ["updated_at", "2019-05-21 20:20:28.619333"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.5ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 58], ["category", "Programming"], ["style", "twopart"], ["setup", "What is a dying programmer's last program?"], ["delivery", "Goodbye, world!"], ["created_at", "2019-05-21 20:20:35.773052"], ["updated_at", "2019-05-21 20:20:35.773052"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (1.0ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 36], ["category", "Programming"], ["style", "single"], ["joke", "\"Knock, knock.\"\n\"Who's there?\"\n\n*very long pause...*\n\"Java.\""], ["created_at", "2019-05-21 20:20:43.238333"], ["updated_at", "2019-05-21 20:20:43.238333"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.5ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 71], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "What do you call crystal clear urine?"], ["delivery", "1080pee."], ["created_at", "2019-05-21 20:20:46.941729"], ["updated_at", "2019-05-21 20:20:46.941729"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 26], ["category", "Programming"], ["style", "twopart"], ["setup", "What do you get if you lock a monkey in a room with a typewriter for 8 hours?"], ["delivery", "A regular expression."], ["created_at", "2019-05-21 20:20:50.726006"], ["updated_at", "2019-05-21 20:20:50.726006"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 1], ["category", "Programming"], ["style", "twopart"], ["setup", "How many programmers does it take to screw in a light bulb?"], ["delivery", "None. It's a hardware problem."], ["created_at", "2019-05-21 20:20:58.198674"], ["updated_at", "2019-05-21 20:20:58.198674"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 109], ["category", "Dark"], ["style", "twopart"], ["setup", "How long does a black woman take to throw away the garbage?"], ["delivery", "Nine months."], ["created_at", "2019-05-21 20:21:09.348617"], ["updated_at", "2019-05-21 20:21:09.348617"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 65], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "I used to love to tell dad jokes"], ["delivery", "Dad, come back..."], ["created_at", "2019-05-21 20:21:13.048923"], ["updated_at", "2019-05-21 20:21:13.048923"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 122], ["category", "Dark"], ["style", "twopart"], ["setup", "Dark humor is like cancer."], ["delivery", "It's even funnier when children get it."], ["created_at", "2019-05-21 20:21:16.837750"], ["updated_at", "2019-05-21 20:21:16.837750"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (1.0ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 50], ["category", "Programming"], ["style", "single"], ["joke", "PHP"], ["created_at", "2019-05-21 20:21:20.557064"], ["updated_at", "2019-05-21 20:21:20.557064"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 29], ["category", "Programming"], ["style", "twopart"], ["setup", "What do you call a group of 8 Hobbits?"], ["delivery", "A Hobbyte."], ["created_at", "2019-05-21 20:21:31.618492"], ["updated_at", "2019-05-21 20:21:31.618492"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 79], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "My girlfriend left me because I have a fetish for touching pasta."], ["delivery", "I'm feeling cannelloni now. :'("], ["created_at", "2019-05-21 20:21:39.158959"], ["updated_at", "2019-05-21 20:21:39.158959"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 105], ["category", "Dark"], ["style", "twopart"], ["setup", "People are like jellybeans and licorice:"], ["delivery", "No one likes the blacks."], ["created_at", "2019-05-21 20:21:50.444910"], ["updated_at", "2019-05-21 20:21:50.444910"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 93], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "Mom asked me where I'm taking her to go out to eat for mother's day."], ["delivery", "I told her, \"We already have food in the house\"."], ["created_at", "2019-05-21 20:22:01.217868"], ["updated_at", "2019-05-21 20:22:01.217868"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 3], ["category", "Programming"], ["style", "single"], ["joke", "A programmer puts two glasses on his bedside table before going to sleep.\nA full one, in case he gets thirsty, and an empty one, in case he doesn't."], ["created_at", "2019-05-21 20:22:04.562025"], ["updated_at", "2019-05-21 20:22:04.562025"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.5ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 45], ["category", "Programming"], ["style", "single"], ["joke", "Judge: \"I sentence you to the maximum punishment...\"\nMe (thinking): \"Please be death, please be death...\"\nJudge: \"Learn Java!\"\nMe: \"Damn.\""], ["created_at", "2019-05-21 20:22:08.442287"], ["updated_at", "2019-05-21 20:22:08.442287"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 81], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "9/11 jokes are not funny."], ["delivery", "The other 2 though, are hilarious!"], ["created_at", "2019-05-21 20:22:12.230300"], ["updated_at", "2019-05-21 20:22:12.230300"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 56], ["category", "Programming"], ["style", "single"], ["joke", "1. Open terminal\n2. mkdir snuts\n3. cd snuts"], ["created_at", "2019-05-21 20:22:23.084686"], ["updated_at", "2019-05-21 20:22:23.084686"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 95], ["category", "Miscellaneous"], ["style", "single"], ["joke", "Oysters hate to give away their pearls because they are shellfish."], ["created_at", "2019-05-21 20:22:30.563489"], ["updated_at", "2019-05-21 20:22:30.563489"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.3ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 110], ["category", "Dark"], ["style", "twopart"], ["setup", "Why are Americans shit at Dota?"], ["delivery", "They can't protect their towers."], ["created_at", "2019-05-21 20:22:38.154339"], ["updated_at", "2019-05-21 20:22:38.154339"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 97], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "What's the difference between an in-law and an outlaw?"], ["delivery", "An outlaw is wanted."], ["created_at", "2019-05-21 20:22:41.554762"], ["updated_at", "2019-05-21 20:22:41.554762"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 35], ["category", "Programming"], ["style", "single"], ["joke", "There are only 10 kinds of people in this world: those who know binary and those who don't."], ["created_at", "2019-05-21 20:22:52.372053"], ["updated_at", "2019-05-21 20:22:52.372053"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 111], ["category", "Dark"], ["style", "twopart"], ["setup", "Everyone says that Hitler really loved animals."], ["delivery", "Then why did he kill 6 million of them?"], ["created_at", "2019-05-21 20:23:14.328903"], ["updated_at", "2019-05-21 20:23:14.328903"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 117], ["category", "Dark"], ["style", "twopart"], ["setup", "What do dermatologists and the KKK have in common?"], ["delivery", "They both remove blackheads."], ["created_at", "2019-05-21 20:23:28.582051"], ["updated_at", "2019-05-21 20:23:28.582051"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 59], ["category", "Programming"], ["style", "single"], ["joke", "\"Can I tell you a TCP joke?\"\n\"Please tell me a TCP joke.\"\n\"OK, I'll tell you a TCP joke.\""], ["created_at", "2019-05-21 20:23:47.457348"], ["updated_at", "2019-05-21 20:23:47.457348"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 31], ["category", "Programming"], ["style", "twopart"], ["setup", "Why did the javascript heap close shop?"], ["delivery", "It ran out of memory."], ["created_at", "2019-05-21 20:23:50.823246"], ["updated_at", "2019-05-21 20:23:50.823246"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 75], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "Arguing with a woman is like reading a software's license agreement"], ["delivery", "In the end you ignore everything and click \"I agree\""], ["created_at", "2019-05-21 20:23:57.733436"], ["updated_at", "2019-05-21 20:23:57.733436"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 123], ["category", "Dark"], ["style", "twopart"], ["setup", "Jokes about anti-vaxxer parents never get old."], ["delivery", "Just like their kids."], ["created_at", "2019-05-21 20:24:01.746342"], ["updated_at", "2019-05-21 20:24:01.746342"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 21], ["category", "Programming"], ["style", "twopart"], ["setup", "Why are modern programing languages so materialistic?"], ["delivery", "Because they are object oriented."], ["created_at", "2019-05-21 20:24:09.192505"], ["updated_at", "2019-05-21 20:24:09.192505"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 12], ["category", "Programming"], ["style", "single"], ["joke", "// This line doesn't actually do anything, but the code stops working when I delete it."], ["created_at", "2019-05-21 20:24:16.649838"], ["updated_at", "2019-05-21 20:24:16.649838"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 4], ["category", "Programming"], ["style", "single"], ["joke", "Java and C were telling jokes. It was C's turn, so he writes something on the wall, points to it and says \"Do you get the reference?\" But Java didn't."], ["created_at", "2019-05-21 20:24:19.996356"], ["updated_at", "2019-05-21 20:24:19.996356"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 7], ["category", "Programming"], ["style", "twopart"], ["setup", "Why is 6 afraid of 7 in hexadecimal Canada?"], ["delivery", "Because 7 8 9 A?"], ["created_at", "2019-05-21 20:24:27.417129"], ["updated_at", "2019-05-21 20:24:27.417129"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 17], ["category", "Programming"], ["style", "twopart"], ["setup", "How can you tell an extroverted programmer?"], ["delivery", "He looks at YOUR shoes when he's talking."], ["created_at", "2019-05-21 20:24:49.968299"], ["updated_at", "2019-05-21 20:24:49.968299"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 55], ["category", "Programming"], ["style", "twopart"], ["setup", "Hey baby I wish your name was asynchronous"], ["delivery", "... so you'd give me a callback."], ["created_at", "2019-05-21 20:25:04.809010"], ["updated_at", "2019-05-21 20:25:04.809010"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 46], ["category", "Programming"], ["style", "twopart"], ["setup", "What's the object-oriented way to become wealthy?"], ["delivery", "Inheritance."], ["created_at", "2019-05-21 20:25:22.910836"], ["updated_at", "2019-05-21 20:25:22.910836"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 10], ["category", "Programming"], ["style", "twopart"], ["setup", "Hey, wanna hear a joke?"], ["delivery", "Parsing HTML with regex."], ["created_at", "2019-05-21 20:25:45.247643"], ["updated_at", "2019-05-21 20:25:45.247643"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.4ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 76], ["category", "Miscellaneous"], ["style", "single"], ["joke", "Two reasons I don't give money to homeless people.\n1) They are going to spend it all on drugs and alcohol\n2) I am going to spend it all on drugs and alcohol."], ["created_at", "2019-05-21 20:25:48.696422"], ["updated_at", "2019-05-21 20:25:48.696422"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 78], ["category", "Miscellaneous"], ["style", "single"], ["joke", "A horse walks into a bar.\n\"Hey\", the Bartender says.\n\"Sure\", the horse replies."], ["created_at", "2019-05-21 20:25:56.213981"], ["updated_at", "2019-05-21 20:25:56.213981"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.4ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 101], ["category", "Dark"], ["style", "single"], ["joke", "I didn't vaccinate my 10 kids and the one that survived is fine!"], ["created_at", "2019-05-21 20:26:15.211727"], ["updated_at", "2019-05-21 20:26:15.211727"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.4ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "political", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["joke_id", 72], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "What happens when you don't obey the KGB?"], ["delivery", "You get Putin jail"], ["political", true], ["created_at", "2019-05-21 20:26:18.920244"], ["updated_at", "2019-05-21 20:26:18.920244"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 119], ["category", "Dark"], ["style", "single"], ["joke", "Stop being homophobic and rude to the LGBTQ+ community. You should be thanking them for saving us plenty of room in heaven."], ["created_at", "2019-05-21 20:26:40.619020"], ["updated_at", "2019-05-21 20:26:40.619020"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 14], ["category", "Programming"], ["style", "twopart"], ["setup", "What do you call a developer who doesn't comment code?"], ["delivery", "A developer."], ["created_at", "2019-05-21 20:26:48.157937"], ["updated_at", "2019-05-21 20:26:48.157937"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.7ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 11], ["category", "Programming"], ["style", "twopart"], ["setup", "Why do programmers confuse halloween and christmas?"], ["delivery", "Because Oct 31 = Dec 25"], ["created_at", "2019-05-21 20:26:55.602081"], ["updated_at", "2019-05-21 20:26:55.602081"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 60], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "I asked my wife if I was the only one she's been with."], ["delivery", "She said, \"Yes, the others were at least sevens or eights\""], ["created_at", "2019-05-21 20:27:13.941974"], ["updated_at", "2019-05-21 20:27:13.941974"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.8ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 8], ["category", "Programming"], ["style", "single"], ["joke", "Programming is like sex.\nMake one mistake and you end up supporting it for the rest of your life."], ["created_at", "2019-05-21 20:27:25.138098"], ["updated_at", "2019-05-21 20:27:25.138098"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "joke", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["joke_id", 39], ["category", "Programming"], ["style", "single"], ["joke", "The generation of random numbers is too important to be left to chance."], ["created_at", "2019-05-21 20:27:40.084947"], ["updated_at", "2019-05-21 20:27:40.084947"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.6ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 82], ["category", "Miscellaneous"], ["style", "twopart"], ["setup", "I WRITE MY JOKES IN CAPITALS."], ["delivery", "THIS ONE WAS WRITTEN IN PARIS."], ["created_at", "2019-05-21 20:27:47.820062"], ["updated_at", "2019-05-21 20:27:47.820062"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mJoke Create (0.5ms)[0m  [1m[32mINSERT INTO "jokes" ("joke_id", "category", "style", "setup", "delivery", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["joke_id", 51], ["category", "Programming"], ["style", "twopart"], ["setup", "Why do programmers wear glasses?"], ["delivery", "Because they need to C#"], ["created_at", "2019-05-21 20:28:02.673883"], ["updated_at", "2019-05-21 20:28:02.673883"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:28:42 -0600
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (1.0ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:9
+No serializer found for resource: #<Joke id: 1, joke_id: 61, category: "Miscellaneous", style: "twopart", setup: "Thank you student loans for getting me through col...", delivery: "I don't think I'll ever be able to repay you", joke: nil, nsfw: nil, political: nil, religious: nil, created_at: "2019-05-21 20:17:01", updated_at: "2019-05-21 20:17:01">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Joke::ActiveRecord_Relation (12.66ms)
+Completed 200 OK in 62ms (Views: 49.2ms | ActiveRecord: 8.3ms)
+
+
+  [1m[36mJoke Load (0.6ms)[0m  [1m[34mSELECT  "jokes".* FROM "jokes" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mJoke Load (0.6ms)[0m  [1m[34mSELECT  "jokes".* FROM "jokes" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:52:17 -0600
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.11ms)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:52:46 -0600
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (0.9ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:12
+No serializer found for resource: #<Joke id: 1, joke_id: 61, category: "Miscellaneous", style: "twopart", setup: "Thank you student loans for getting me through col...", delivery: "I don't think I'll ever be able to repay you", joke: nil, nsfw: nil, political: nil, religious: nil, created_at: "2019-05-21 20:17:01", updated_at: "2019-05-21 20:17:01">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (12.53ms)
+Completed 200 OK in 46ms (Views: 18.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:53:19 -0600
+Processing by Api::V1::JokesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.1ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:54:31 -0600
+Processing by Api::V1::JokesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:54:53 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 13ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:55:23 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:55:42 -0600
+Processing by Api::V1::JokesController#index as HTML
+Completed 500 Internal Server Error in 27158ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:21:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:33:in `index'
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:56:27 -0600
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (1.0ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:12
+  [1m[36mCACHE Joke Load (0.0ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:12
+Completed 500 Internal Server Error in 195370ms (ActiveRecord: 6.6ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:21:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:33:in `index'
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 14:59:57 -0600
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (1.6ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:12
+Completed 500 Internal Server Error in 85867ms (ActiveRecord: 9.2ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:21:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:33:in `index'
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:01:28 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:01:38 -0600
+  [1m[36mJoke Load (44.1ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:12
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:02:48 -0600
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+Completed 500 Internal Server Error in 9269ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:21:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:33:in `index'
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:03:31 -0600
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:04:28 -0600
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:04:43 -0600
+Processing by Api::V1::JokesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:04:49 -0600
+Processing by Api::V1::JokesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.07ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:04:55 -0600
+Processing by Api::V1::JokesController#index as HTML
+Completed 500 Internal Server Error in 86993ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:26:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:33:in `index'
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:06:57 -0600
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (1.5ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:12
+Completed 500 Internal Server Error in 41070ms (ActiveRecord: 9.1ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:26:in `single_jokes'
+app/controllers/api/v1/jokes_controller.rb:33:in `index'
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:12:03 -0600
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (1.3ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:21
+No serializer found for resource: "1. Open terminal\n2. mkdir snuts\n3. cd snuts"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.46ms)
+Completed 200 OK in 27ms (Views: 6.9ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:12:58 -0600
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexhare/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (1.0ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:21
+Completed 200 OK in 30ms (Views: 3.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:13:20 -0600
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (0.7ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:21
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:13:25 -0600
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (3.4ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:21
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:13:26 -0600
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (2.6ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:21
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:13:27 -0600
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (5.0ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:21
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:13:39 -0600
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (1.3ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:21
+Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:13:57 -0600
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (0.5ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:21
+No serializer found for resource: "1. Open terminal\n2. mkdir snuts\n3. cd snuts"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.89ms)
+Completed 200 OK in 42ms (Views: 9.9ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:14:27 -0600
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (0.5ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:12
+No serializer found for resource: #<Joke id: 1, joke_id: 61, category: "Miscellaneous", style: "twopart", setup: "Thank you student loans for getting me through col...", delivery: "I don't think I'll ever be able to repay you", joke: nil, nsfw: nil, political: nil, religious: nil, created_at: "2019-05-21 20:17:01", updated_at: "2019-05-21 20:17:01">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (13.49ms)
+Completed 200 OK in 49ms (Views: 19.5ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/v1/jokes" for ::1 at 2019-05-21 15:15:41 -0600
+Processing by Api::V1::JokesController#index as HTML
+  [1m[36mJoke Load (0.5ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes"[0m
+  ↳ app/controllers/api/v1/jokes_controller.rb:21
+No serializer found for resource: #<Joke id: 3, joke_id: 56, category: "Programming", style: "single", setup: nil, delivery: nil, joke: "1. Open terminal\n2. mkdir snuts\n3. cd snuts", nsfw: nil, political: nil, religious: nil, created_at: "2019-05-21 20:17:08", updated_at: "2019-05-21 20:17:08">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (4.03ms)
+Completed 200 OK in 30ms (Views: 10.3ms | ActiveRecord: 5.1ms)
+
+
